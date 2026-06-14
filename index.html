@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aqil's e-Portfolio | A220997</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+  :root {
+    --sdg-orange: #F76D2B;
+    --sdg-gold:   #F7A224;
+    --sdg-teal:   #1B8C7D;
+    --sdg-dark:   #0D1B2A;
+    --sdg-mid:    #152536;
+    --sdg-card:   #1A2F42;
+    --sdg-border: #253D52;
+    --text-main:  #E8EFF5;
+    --text-sub:   #8BA8BF;
+    --text-muted: #5A7A92;
+    --radius:     12px;
+    --radius-lg:  18px;
+    --shadow:     0 4px 24px rgba(0,0,0,0.35);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--sdg-dark);
+    color: var(--text-main);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13, 27, 42, 0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--sdg-border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .nav-brand {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--sdg-gold);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0.25rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-sub);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--text-main);
+    background: var(--sdg-border);
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text-sub);
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5rem 1.5rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 55% at 50% 0%, rgba(247,162,36,0.10) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 80% 80%, rgba(27,140,125,0.09) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(247,109,43,0.12);
+    border: 1px solid rgba(247,109,43,0.30);
+    color: var(--sdg-orange);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--sdg-orange);
+    border-radius: 50%;
+  }
+
+  .hero-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-name span {
+    background: linear-gradient(135deg, var(--sdg-gold), var(--sdg-orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-role {
+    font-size: 1.05rem;
+    color: var(--text-sub);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-intro {
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    font-size: 1rem;
+    color: var(--text-sub);
+    line-height: 1.8;
+  }
+
+  .hero-sdg {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(27,140,125,0.12);
+    border: 1px solid rgba(27,140,125,0.30);
+    color: var(--sdg-teal);
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.5rem 1.1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+
+  .sdg-icon { font-size: 1.1rem; }
+
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .hero-meta-item {
+    text-align: center;
+  }
+
+  .hero-meta-item .label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  .hero-meta-item .value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-top: 2px;
+  }
+
+  /* ── SECTION WRAPPER ── */
+  section {
+    padding: 5rem 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sdg-orange);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.6rem;
+  }
+
+  .section-divider {
+    width: 48px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--sdg-gold), var(--sdg-orange));
+    border-radius: 2px;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-sep {
+    border: none;
+    border-top: 1px solid var(--sdg-border);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* ── CARDS ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card {
+    background: var(--sdg-card);
+    border: 1px solid var(--sdg-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+    border-color: rgba(247,162,36,0.35);
+  }
+
+  .card-video {
+    position: relative;
+    padding-top: 56.25%;
+    background: var(--sdg-mid);
+  }
+
+  .card-video iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .card-body {
+    padding: 1.4rem 1.4rem 1.6rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .card-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sdg-gold);
+    background: rgba(247,162,36,0.10);
+    border: 1px solid rgba(247,162,36,0.22);
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    width: fit-content;
+  }
+
+  .card-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .card-desc {
+    font-size: 0.875rem;
+    color: var(--text-sub);
+    line-height: 1.7;
+  }
+
+  .reflection-box {
+    background: rgba(27,140,125,0.08);
+    border-left: 3px solid var(--sdg-teal);
+    border-radius: 0 6px 6px 0;
+    padding: 0.75rem 1rem;
+    font-size: 0.83rem;
+    color: var(--text-sub);
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  .reflection-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sdg-teal);
+    margin-bottom: 0.3rem;
+    font-style: normal;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.83rem;
+    font-weight: 600;
+    padding: 0.55rem 1.1rem;
+    border-radius: 7px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: fit-content;
+    margin-top: auto;
+  }
+
+  .btn-github {
+    background: rgba(255,255,255,0.06);
+    color: var(--text-main);
+    border: 1px solid var(--sdg-border);
+  }
+
+  .btn-github:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: var(--text-sub);
+  }
+
+  .btn-github::before {
+    content: '↗';
+    font-size: 0.9em;
+  }
+
+  /* ── PROJECT CARDS (full-width) ── */
+  .project-card {
+    background: var(--sdg-card);
+    border: 1px solid var(--sdg-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    transition: box-shadow 0.25s, border-color 0.25s;
+  }
+
+  .project-card:hover {
+    box-shadow: var(--shadow);
+    border-color: rgba(247,109,43,0.30);
+  }
+
+  .project-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .project-video-wrap {
+    position: relative;
+    padding-top: 0;
+  }
+
+  .project-video-wrap iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 260px;
+    border: none;
+    display: block;
+  }
+
+  .project-content {
+    padding: 1.8rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-left: 1px solid var(--sdg-border);
+  }
+
+  .project-badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sdg-orange);
+    background: rgba(247,109,43,0.10);
+    border: 1px solid rgba(247,109,43,0.22);
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    width: fit-content;
+  }
+
+  .project-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  .project-problem-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.2rem;
+  }
+
+  .project-problem {
+    font-size: 0.875rem;
+    color: var(--text-sub);
+    line-height: 1.7;
+  }
+
+  .lessons-box {
+    background: rgba(247,109,43,0.06);
+    border-left: 3px solid var(--sdg-orange);
+    border-radius: 0 6px 6px 0;
+    padding: 0.75rem 1rem;
+    font-size: 0.83rem;
+    color: var(--text-sub);
+    line-height: 1.7;
+  }
+
+  .lessons-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sdg-orange);
+    margin-bottom: 0.3rem;
+  }
+
+  /* ── REFLECTION SECTION ── */
+  .reflection-full {
+    background: var(--sdg-card);
+    border: 1px solid var(--sdg-border);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    font-size: 1rem;
+    color: var(--text-sub);
+    line-height: 1.9;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .reflection-full::before {
+    content: '"';
+    position: absolute;
+    top: -0.5rem;
+    left: 1.5rem;
+    font-size: 8rem;
+    color: rgba(247,162,36,0.06);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .skill-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid;
+    transition: transform 0.18s, box-shadow 0.18s;
+    cursor: default;
+  }
+
+  .skill-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+  }
+
+  .skill-pill.kotlin  { background: rgba(127,82,255,0.1); border-color: rgba(127,82,255,0.35); color: #a78bfa; }
+  .skill-pill.compose { background: rgba(0,188,212,0.1);  border-color: rgba(0,188,212,0.35);  color: #67e8f9; }
+  .skill-pill.room    { background: rgba(247,162,36,0.1); border-color: rgba(247,162,36,0.35); color: var(--sdg-gold); }
+  .skill-pill.retrofit{ background: rgba(247,109,43,0.1); border-color: rgba(247,109,43,0.35); color: #fb923c; }
+  .skill-pill.firebase{ background: rgba(255,196,0,0.1);  border-color: rgba(255,196,0,0.35);  color: #fde047; }
+
+  /* ── RESOURCES ── */
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .resource-card {
+    background: var(--sdg-card);
+    border: 1px solid var(--sdg-border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.4rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .resource-card:hover {
+    border-color: rgba(27,140,125,0.45);
+    transform: translateY(-2px);
+  }
+
+  .resource-icon {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .resource-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+    color: var(--text-main);
+  }
+
+  .resource-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--sdg-mid);
+    border-top: 1px solid var(--sdg-border);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+  }
+
+  .footer-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 0.3rem;
+  }
+
+  .footer-sub {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .footer-sdg {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    color: var(--sdg-teal);
+    background: rgba(27,140,125,0.08);
+    border: 1px solid rgba(27,140,125,0.20);
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: rgba(13,27,42,0.98);
+      padding: 1rem;
+      border-bottom: 1px solid var(--sdg-border);
+      gap: 0.1rem;
+    }
+
+    .nav-links.open { display: flex; }
+
+    .nav-links a {
+      padding: 0.7rem 1rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-toggle { display: flex; }
+
+    .project-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .project-content {
+      border-left: none;
+      border-top: 1px solid var(--sdg-border);
+    }
+
+    .project-video-wrap iframe {
+      min-height: 220px;
+    }
+
+    section { padding: 3.5rem 1.25rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, html { transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<header>
+  <nav aria-label="Primary navigation">
+    <a href="#home" class="nav-brand">Aqil · A220997</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#labs">Labs</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#reflection">Reflection</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#resources">Resources</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- ── HOME ── -->
+<section id="home" aria-label="Home and introduction">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div>
+    <div class="hero-badge">e-Portfolio 2024</div>
+    <h1 class="hero-name">Mohamad Aqil<br><span>Rusyaimi</span></h1>
+    <p class="hero-role">Bachelor of Software Engineering · Universiti Teknologi MARA</p>
+    <p class="hero-intro">
+      I'm a software engineering student who enjoys learning new things and is excited to face new challenges during my process of learning.
+    </p>
+    <div class="hero-sdg">
+      <span class="sdg-icon">🏙️</span>
+      SDG 11 — Sustainable Cities &amp; Communities
+    </div>
+    <p style="font-size:0.82rem;color:var(--text-muted);max-width:540px;margin:0 auto 1.5rem;">
+      Targeting urban resilience and safety by empowering citizens to transform community feedback into action for safer, more sustainable cities.
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="label">Matric No.</div>
+        <div class="value">A220997</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="label">Programme</div>
+        <div class="value">B. Software Engineering</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="label">Instructor</div>
+        <div class="value">Sir Nelson</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-sep" />
+
+<!-- ── LABS ── -->
+<section id="labs" aria-label="Laboratory work">
+  <p class="section-eyebrow">Hands-on work</p>
+  <h2 class="section-title">Labs</h2>
+  <div class="section-divider"></div>
+
+  <div class="card-grid">
+
+    <!-- Lab 1 -->
+    <article class="card">
+      <div class="card-video">
+        <iframe
+          src="https://www.youtube.com/embed/P7bL9owpySY"
+          title="Lab 1 — UI with Jetpack Compose demo video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Lab 1</span>
+        <h3 class="card-title">UI with Jetpack Compose</h3>
+        <p class="card-desc">Introduction to building user interfaces with Jetpack Compose, exploring layout hierarchies and composable functions.</p>
+        <div class="reflection-box">
+          <div class="reflection-label">Reflection</div>
+          It was a bit confusing to understand how Compose layouts work since this was my first time. But after taking time to study it, I now understand and can use Compose layouts confidently.
+        </div>
+      </div>
+    </article>
+
+    <!-- Lab 2 -->
+    <article class="card">
+      <div class="card-video">
+        <iframe
+          src="https://www.youtube.com/embed/OFANxxKaX4Q"
+          title="Lab 2 — Interaction and State Management demo video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Lab 2</span>
+        <h3 class="card-title">Interaction &amp; State Management</h3>
+        <p class="card-desc">Exploring state management in Compose, including state hoisting, remember, and user interaction handling.</p>
+        <div class="reflection-box">
+          <div class="reflection-label">Reflection</div>
+          Managing state was a little confusing, but thanks to the lab tutorial I understood how to handle it. I also used AI (Gemini) to help fix errors I encountered during development.
+        </div>
+      </div>
+    </article>
+
+    <!-- Lab 3 -->
+    <article class="card">
+      <div class="card-video">
+        <iframe
+          src="https://www.youtube.com/embed/GkQe96SRxHY"
+          title="Lab 3 — Material Design demo video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Lab 3</span>
+        <h3 class="card-title">Material Design</h3>
+        <p class="card-desc">Applying Material Design 3 principles and generating cohesive colour palettes using the Material Theme Builder.</p>
+        <div class="reflection-box">
+          <div class="reflection-label">Reflection</div>
+          This lab was really challenging since I'm not strong in design. Fortunately, the Material Theme Builder helped me generate a harmonious, industry-standard colour palette by selecting just a single primary colour.
+        </div>
+      </div>
+    </article>
+
+    <!-- Lab 4 -->
+    <article class="card">
+      <div class="card-video">
+        <iframe
+          src="https://www.youtube.com/embed/r4BnfhTr5rs"
+          title="Lab 4 — Navigation demo video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Lab 4</span>
+        <h3 class="card-title">Navigation</h3>
+        <p class="card-desc">Implementing multi-screen navigation with Navigation Compose, passing arguments between destinations.</p>
+        <div class="reflection-box">
+          <div class="reflection-label">Reflection</div>
+          This lab was very challenging due to multiple interconnected files, but I managed to complete and understand it. I used AI assistance to learn how to pass multiple data arguments between screens rather than a single value.
+        </div>
+      </div>
+    </article>
+
+    <!-- Lab 5 -->
+    <article class="card">
+      <div class="card-video">
+        <iframe
+          src="https://www.youtube.com/embed/zfc1U4vXQdE"
+          title="Lab 5 — Room Database demo video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Lab 5</span>
+        <h3 class="card-title">Room Database</h3>
+        <p class="card-desc">Integrating a Room local database with a DAO, entities, and ViewModels to persist and display data.</p>
+        <div class="reflection-box">
+          <div class="reflection-label">Reflection</div>
+          This final lab was the most challenging, containing multiple files that needed to be linked with the UI screens. I relied on AI to identify and resolve errors encountered throughout the process.
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<hr class="section-sep" />
+
+<!-- ── PROJECTS ── -->
+<section id="projects" aria-label="Project showcase">
+  <p class="section-eyebrow">Showcase</p>
+  <h2 class="section-title">Projects</h2>
+  <div class="section-divider"></div>
+
+  <!-- Project 1 -->
+  <article class="project-card">
+    <div class="project-inner">
+      <div class="project-video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/5azFLIiInAM"
+          title="SafeRoad Project 1 — Video Software Review"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+      <div class="project-content">
+        <span class="project-badge">Project 1 · Lab 4 + Working Features</span>
+        <h3 class="project-title">SafeRoad</h3>
+        <div>
+          <div class="project-problem-label">Problem Statement</div>
+          <p class="project-problem">Malaysian citizens often struggle to find the responsible party to report road issues — such as potholes, malfunctioning streetlights, and clogged drainage — leaving problems unreported for extended periods.</p>
+        </div>
+        <div class="lessons-box">
+          <div class="lessons-label">Lessons Learned</div>
+          I learned how to implement multi-screen navigation, insert and display data using a ViewModel, and design a visually attractive app with Material Theme Builder.
+        </div>
+        <a href="https://github.com/AqilRusyaimi/A220997_Aqil_DrNelson_Project1.git"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-github"
+           aria-label="View SafeRoad Project 1 on GitHub">
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Project 2 -->
+  <article class="project-card">
+    <div class="project-inner">
+      <div class="project-video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/JFHJvwKV4fc"
+          title="SafeRoad Project 2 — Video Software Review"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+      <div class="project-content">
+        <span class="project-badge">Project 2 · Lab 5 + API + Sensors + Cloud</span>
+        <h3 class="project-title">SafeRoad <span style="font-size:0.75rem;color:var(--sdg-teal);font-weight:500;">v2</span></h3>
+        <div>
+          <div class="project-problem-label">Problem Statement</div>
+          <p class="project-problem">Building on Project 1, this iteration adds cloud synchronisation, real-time API integration, and sensor data to create a fully connected road-issue reporting platform accessible across multiple devices.</p>
+        </div>
+        <div class="lessons-box">
+          <div class="lessons-label">Lessons Learned</div>
+          I learned how to connect an app to a local Room database and Firebase cloud so data is accessible across devices. I also learned to consume external APIs with Retrofit for live data.
+        </div>
+        <a href="https://github.com/AqilRusyaimi/A220997_Aqil_SirNelson_Project2.git"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-github"
+           aria-label="View SafeRoad Project 2 on GitHub">
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </article>
+
+</section>
+
+<hr class="section-sep" />
+
+<!-- ── REFLECTION ── -->
+<section id="reflection" aria-label="Learning reflection">
+  <p class="section-eyebrow">Looking back</p>
+  <h2 class="section-title">Reflection &amp; Learning Journey</h2>
+  <div class="section-divider"></div>
+  <div class="reflection-full">
+    During my journey learning this subject, I had a lot of hard times understanding what I was doing since this was my first time using Android Studio to build a mobile app. But thanks to AI, it helped me by explaining each part and assisting me in fixing errors I encountered. Even after finishing this subject, there is still a lot more I need to explore and learn by myself to sharpen my own skills in mobile development.
+  </div>
+</section>
+
+<hr class="section-sep" />
+
+<!-- ── SKILLS ── -->
+<section id="skills" aria-label="Technical skills">
+  <p class="section-eyebrow">Tech stack</p>
+  <h2 class="section-title">Skills</h2>
+  <div class="section-divider"></div>
+  <div class="skills-grid" role="list">
+    <span class="skill-pill kotlin" role="listitem">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 2h11.5L2 13.5V2zm0 20 10-10L22 22H2zm20-20L12 12 2 2h20z"/></svg>
+      Kotlin
+    </span>
+    <span class="skill-pill compose" role="listitem">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10"/></svg>
+      Jetpack Compose
+    </span>
+    <span class="skill-pill room" role="listitem">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C7 2 3 4.7 3 8v8c0 3.3 4 6 9 6s9-2.7 9-6V8c0-3.3-4-6-9-6zm0 2c4.4 0 7 2.1 7 4s-2.6 4-7 4-7-2.1-7-4 2.6-4 7-4z"/></svg>
+      Room
+    </span>
+    <span class="skill-pill retrofit" role="listitem">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16M4 10h16M4 14h16M4 18h16" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+      Retrofit
+    </span>
+    <span class="skill-pill firebase" role="listitem">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.7 18.5l6.3-16.2 4.7 9.5-11 6.7zm12.8-.5l-3.2-14-3.2 8 6.4 6z"/></svg>
+      Firebase Firestore
+    </span>
+  </div>
+</section>
+
+<hr class="section-sep" />
+
+<!-- ── RESOURCES ── -->
+<section id="resources" aria-label="Resources and references">
+  <p class="section-eyebrow">References</p>
+  <h2 class="section-title">Resources</h2>
+  <div class="section-divider"></div>
+  <div class="resource-grid">
+
+    <div class="resource-card">
+      <div class="resource-icon">🌦️</div>
+      <div class="resource-name">Open-Meteo API</div>
+      <div class="resource-desc">A free weather API used to retrieve live weather data without needing a subscription or API key.</div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🖌️</div>
+      <div class="resource-name">Jetpack Compose</div>
+      <div class="resource-desc">The modern declarative toolkit for building native Android UI using composable functions.</div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🧭</div>
+      <div class="resource-name">Navigation Compose</div>
+      <div class="resource-desc">Handles screen transitions and routing within the app using a type-safe navigation graph.</div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">♻️</div>
+      <div class="resource-name">Lifecycle ViewModel &amp; Runtime</div>
+      <div class="resource-desc">Used to manage UI state in a lifecycle-aware manner, surviving configuration changes.</div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">⚡</div>
+      <div class="resource-name">Kotlin Coroutines</div>
+      <div class="resource-desc">Enables asynchronous programming and non-blocking network or location calls for smooth performance.</div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🔗</div>
+      <div class="resource-name">Retrofit 2</div>
+      <div class="resource-desc">A type-safe HTTP client for Android used to connect the app to the Open-Meteo API.</div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">📦</div>
+      <div class="resource-name">Gson Converter</div>
+      <div class="resource-desc">Used with Retrofit to parse JSON API responses into Kotlin data objects automatically.</div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🗄️</div>
+      <div class="resource-name">Room Persistence Library</div>
+      <div class="resource-desc">An abstraction layer over SQLite that provides a robust local database management solution.</div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">📍</div>
+      <div class="resource-name">Play Services Location</div>
+      <div class="resource-desc">Interfaces with the device hardware to retrieve GPS coordinates for location-based features.</div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🔥</div>
+      <div class="resource-name">Firebase</div>
+      <div class="resource-desc">Includes Firebase Realtime Database for cloud sync, enabling data access across multiple devices.</div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🤖</div>
+      <div class="resource-name">AI Assistance</div>
+      <div class="resource-desc">This application was developed with AI assistance to optimise architectural patterns and streamline API integrations.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p class="footer-name">MOHAMAD AQIL RUSYAIMI BIN SEROJI</p>
+  <p class="footer-sub">Matric No: A220997 · Bachelor of Software Engineering · 2024</p>
+  <span class="footer-sdg">🏙️ SDG 11 — Sustainable Cities &amp; Communities</span>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
+
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+
+  // Close nav when a link is clicked (mobile)
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+</body>
+</html>
